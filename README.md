@@ -10,7 +10,7 @@ AWS API Gateway only support message frame size less than 32 KB. So the audio fi
 
 The audio chunks will be sent to API gateway with ws.send(chunk). Each chunk will trigger separate Lambda instance. It works in ansync mode.
 Lambda will use Whisper to convert audio to text. The issue is it will take different time for Whisper to send back the text.
-The second chund conversion result may be sent back to Lambda befor first chunk. It can be out of order.
+The second chunk conversion result may be sent back to Lambda befor first chunk. It can be out of order.
 We must keep the correct order for chunk results. It is about keep correct order between multiple Lambda functions.
 We have to use DynamoDB for this purpose.
 DynamoSB will have table named speech_chunk
