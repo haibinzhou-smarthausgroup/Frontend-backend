@@ -13,7 +13,7 @@ Lambda will use Whisper to convert audio to text. The issue is it will take diff
 The second chunk conversion result may be sent back to Lambda befor first chunk. It can be out of order.
 We must keep the correct order for chunk results. It is about keep correct order between multiple Lambda functions.
 We have to use DynamoDB for this purpose.
-DynamoSB will have table named speech_chunk
+DynamoDB will have table named speech_chunk
 Partation key is connectionID
 sort key is chunk dequence #
 
