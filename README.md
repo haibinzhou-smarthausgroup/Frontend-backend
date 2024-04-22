@@ -15,7 +15,7 @@ We must keep the correct order for chunk results. It is about keep correct order
 We have to use DynamoDB for this purpose.
 DynamoDB will have table named speech_chunk
 Partation key is connectionID
-sort key is chunk dequence #
+sort key is chunk sequence #
 
 Client side Javescript will keep send chunks until the recording is stopped, just like user enter text and clik send button. So AI can generate correct answer based on the full questions.
 Client will send chunk_finish message to different Lambda function. This function will search DynamoDB to find chunks in correct order. Combine them together in Base64 format, then convert Base64 file to binary file.
